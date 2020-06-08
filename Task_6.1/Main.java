@@ -4,7 +4,7 @@ import java.net.Proxy;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class Main {
+public class MyClass {
     public static void main(String[] args) {
         try {
             FileInputStream fin = new FileInputStream("C:/Users/Компик/Desktop/Обучение/ip.txt");
@@ -61,5 +61,10 @@ public class Main {
         }catch (Exception e){
             return false;
         }
+    }
+}
+class MyRunnableClass implements Runnable{
+    @Override
+    public void run() {
     }
 }
