@@ -8,17 +8,6 @@ public class Main {
         Dog taykDog = new Dog("Tayk",20,8);
     }
 }
-class Mouse {
-    String name;
-    int height;
-    int tail;
-
-    public Mouse(String name, int height, int tail) {
-        this.name = name;
-        this.height = height;
-        this.tail = tail;
-    }
-}
 class Cat {
     String name;
     int height;
@@ -36,6 +25,17 @@ class Dog {
     int tail;
 
     public Dog(String name, int height, int tail) {
+        this.name = name;
+        this.height = height;
+        this.tail = tail;
+    }
+}
+class Mouse {
+    String name;
+    int height;
+    int tail;
+
+    public Mouse(String name, int height, int tail) {
         this.name = name;
         this.height = height;
         this.tail = tail;
