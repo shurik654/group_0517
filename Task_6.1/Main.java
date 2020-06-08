@@ -4,7 +4,7 @@ import java.net.Proxy;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class MyClass {
+public class Main {
     public static void main(String[] args) {
         try {
             FileInputStream fin = new FileInputStream("C:/Users/Компик/Desktop/Обучение/ip.txt");
