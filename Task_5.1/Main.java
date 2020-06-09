@@ -25,7 +25,7 @@ public class Main {
         String city = reader.readLine();
         for (int i = 0; i < list.size(); i++) {
             if (city.equals(list.get(i))) {
-                System.out.println(list.get(i));
+                System.out.println(list.get(i+1));
             }
         }
     }
