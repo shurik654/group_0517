@@ -15,7 +15,7 @@ public class Client {
             in = new DataInputStream(socket.getInputStream());
             out= new DataOutputStream(socket.getOutputStream());
             scanner = new Scanner(System.in);
-            System.out.print("Введите ваше имя: ");
+            System.out.print("Enter your name: ");
             String username = scanner.nextLine();
             out.writeUTF(username);
             Thread sendThread = new Thread(new Runnable() {
@@ -41,7 +41,6 @@ public class Client {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-
                     }
                 }
             });
