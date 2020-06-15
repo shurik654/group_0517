@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="399.0" prefWidth="314.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <items>
+      <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" />
+      <TextField fx:id="textField" onAction="#send" prefHeight="40.0" prefWidth="312.0" promptText="Введите сообщение" />
+   </items>
+</SplitPane>
