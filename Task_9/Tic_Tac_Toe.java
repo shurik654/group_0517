@@ -94,7 +94,7 @@ public class TicTacToe {
         System.out.println("Выберите сложность:");
         System.out.println("1. Компютер ходит рандомно");
         System.out.println("2. Компьютер анализирует ходы");
-        System.out.println("3. Компютер подсчитывает очки для каждой клетки и совершает ход");
+        System.out.println("3. Компютер пытается следовать беспроигрышной комбинацией");
         System.out.println("4. Выйти из игры");
 
         int i = 0;
@@ -166,18 +166,75 @@ public class TicTacToe {
         field[x][y] = sign;
     }
 
-    public static void aiShot2(){
-        
-        
+    public static void aiShot2() {
+        int x = -1;
+        int y = -1;
+        isCellBusy(x, y);
+        if (
+                (field[0][0] == User && field[0][1] == User) ||
+                        (field[2][0] == User && field[1][1] == User) ||
+                        (field[2][2] == User && field[1][2] == User)) {
+            x = 0;
+            y = 2;
+        }
+        if (
+                (field[1][0] == User && field[1][1] == User) ||
+                        (field[0][2] == User && field[2][2] == User)) {
+            x = 1;
+            y = 2;
+        }
+        if (
+                (field[2][0] == User && field[2][1] == User) ||
+                        (field[0][0] == User && field[1][1] == User) ||
+                        (field[1][2] == User && field[0][2] == User)) {
+            x = 2;
+            y = 2;
+        }
+        if (
+                (field[0][1] == User && field[0][2] == User) ||
+                        (field[1][1] == User && field[2][2] == User) ||
+                        (field[0][1] == User && field[0][2] == User)) {
+            x = 0;
+            y = 0;
+        }
+        if (
+                (field[0][0] == User && field[2][0] == User) ||
+                        (field[1][1] == User && field[1][2] == User)) {
+            x = 1;
+            y = 0;
+        }
+        if (
+                (field[0][0] == User && field[1][0] == User) ||
+                        (field[1][1] == User && field[0][2] == User) ||
+                        (field[2][1] == User && field[2][2] == User)) {
+            x = 2;
+            y = 0;
+        }
+        if (
+                (field[0][1] == User && field[2][1] == User) ||
+                        (field[1][0] == User && field[1][2] == User) ||
+                        (field[0][0] == User && field[2][2] == User) ||
+                        (field[0][2] == User && field[2][0] == User)) {
+            x = 1;
+            y = 1;
+        }
+        else {
+            do {
+            Random rnd = new Random();
+            x = rnd.nextInt(Field_size);
+            y = rnd.nextInt(Field_size);
+        }
+        while (isCellBusy(x, y));
+        }
+        field[x][y] = Comp;
+        System.out.println("Компютер выбрал: " + (x + 1) + " " + (y + 1));
     }
-    
     public static void aiShot() {
         int x = -1;
         int y = -1;
         boolean ai_win = false;
         boolean user_win = false;
 
-        if (aiLevel == 2) {
             for (int i = 0; i < Field_size; i++) {
                 for (int j = 0; j < Field_size; j++) {
                     if (!isCellBusy(i, j)) {
@@ -191,9 +248,6 @@ public class TicTacToe {
                     }
                 }
             }
-        }
-
-        if (aiLevel > 0) {
             if (!ai_win) {
                 for (int i = 0; i < Field_size; i++) {
                     for (int j = 0; j < Field_size; j++) {
@@ -209,7 +263,7 @@ public class TicTacToe {
                     }
                 }
             }
-        }
+
         if (!ai_win && !user_win) {
             do {
                 Random rnd = new Random();
