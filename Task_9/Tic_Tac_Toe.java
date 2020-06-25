@@ -14,22 +14,13 @@ public class TicTacToe {
     }
 
     public static void game_with_comp() {
-        int count = 0;
         initField();
         while (true) {
             printField();
             userShot(User,0);
-            count++;
             if (checkWin(User)) {
                 printField();
                 System.out.println("Игрок выиграл!!!");
-                break;
-            }
-            aiShot();
-            count++;
-            if (checkWin(Comp)) {
-                printField();
-                System.out.println("Компютер выиграл!!!");
                 break;
             }
             if (isMapFull()) {
@@ -37,7 +28,19 @@ public class TicTacToe {
                 System.out.println("Ничья!!!");
                 break;
             }
+            aiShot();
+            if (checkWin(Comp)) {
+                printField();
+                System.out.println("Компютер выиграл!!!");
+                break;
+            }
+
         }
+    }
+    public static void game_with_comp2(){
+
+
+
     }
 
     public static void game_with_comp_random() {
@@ -52,6 +55,11 @@ public class TicTacToe {
                 printField();
                 break;
             }
+            if (isMapFull()) {
+                printField();
+                System.out.println("Ничья!!!");
+                break;
+            }
             aiShot_random();
             count++;
             if (checkWin(Comp)) {
@@ -59,11 +67,7 @@ public class TicTacToe {
                 printField();
                 break;
             }
-            if (isMapFull()) {
-                printField();
-                System.out.println("Ничья!!!");
-                break;
-            }
+
         }
     }
 
@@ -71,7 +75,8 @@ public class TicTacToe {
         System.out.println("Выберите сложность:");
         System.out.println("1. Компютер ходит рандомно");
         System.out.println("2. Компьютер анализирует ходы");
-        System.out.println("3. Выйти из игры");
+        System.out.println("3. Компютер подсчитывает очки для каждой клетки и совершает ход");
+        System.out.println("4. Выйти из игры");
 
         int i = 0;
         Scanner sc = new Scanner(System.in);
@@ -89,6 +94,11 @@ public class TicTacToe {
             }
             case 3: {
                 aiLevel = 2;
+                game_with_comp2();
+                break;
+            }
+            case 4: {
+                aiLevel = 3;
                 System.exit(0);
                 break;
             }
