@@ -38,9 +38,28 @@ public class TicTacToe {
         }
     }
     public static void game_with_comp2(){
+        initField();
+        while (true) {
+            printField();
+            userShot(User,0);
+            if (checkWin(User)) {
+                printField();
+                System.out.println("Игрок выиграл!!!");
+                break;
+            }
+            if (isMapFull()) {
+                printField();
+                System.out.println("Ничья!!!");
+                break;
+            }
+            aiShot2();
+            if (checkWin(Comp)) {
+                printField();
+                System.out.println("Компютер выиграл!!!");
+                break;
+            }
 
-
-
+        }
     }
 
     public static void game_with_comp_random() {
@@ -147,6 +166,11 @@ public class TicTacToe {
         field[x][y] = sign;
     }
 
+    public static void aiShot2(){
+        
+        
+    }
+    
     public static void aiShot() {
         int x = -1;
         int y = -1;
